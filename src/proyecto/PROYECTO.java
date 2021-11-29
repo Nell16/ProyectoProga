@@ -24,7 +24,7 @@ public class PROYECTO {
         +"2. Registro de cliente\n"
         +"3. Reservacion de hospedaje\n"
         +"4. Reservacion de restaurante\n"
-        +"5. Horarios de check in y check out\n"
+        +"5. Asignacion de horarios\n"
         +"6. Salir"));
         
         //Estructura Decision
@@ -360,11 +360,38 @@ public class PROYECTO {
         else if (Menu==5)// CHECK IN Y CHECK OUT
         {
             CheckIn_Out FIDE= new CheckIn_Out();
-            String resp5 = JOptionPane.showInputDialog("Bienvenido a la asignacion de horarios de check in y check out!\n"
-                    + "Desea cambiar la cantidad de personas que pueden hacer el check in y check out al mismo tiempo?");
-            if ("si".equals(resp5))
+            JOptionPane.showMessageDialog(null,"Bienvenido a la asignacion de horarios de check in y check out!\n");
+            FIDE.HorariosINT();
+            FIDE.HorariosOUT();
+            JOptionPane.showMessageDialog(null,"Datos almacenados correctamente!");
+            int resp5=Integer.parseInt (JOptionPane.showInputDialog(null,"Los Servichos Check In y Check Out se encuentran asignados!\n"
+                    + "1- Desea cambiar la cantidad de personas que pueden hacer el check in y check out en todos los horarios?\n"
+                    + "2- Desea cambiar la cantidad de personas que pueden hacer el check in y check en extractos de 30 min?"));
+            if (resp5==1)
             {
+                JOptionPane.showMessageDialog(null,"Procesando...");
+                int CANPIN=Integer.parseInt(JOptionPane.showInputDialog(null,"Cuantas personas pueden hacer el Check In al mismo tiempo..:\n"
+                        + "Nota: Recordar que el Hotel posee un aforo por lo cual el maximo es de 20 personas!"));
+                int CANPOUT=Integer.parseInt(JOptionPane.showInputDialog(null,"Cuantas personas pueden hacer el Check Out al mismo tiempo..:\n"
+                        + "Nota: Recordar que el Hotel posee un aforo por lo cual el maximo es de 20 personas!"));
+                FIDE.setP_IN(CANPIN);
+                FIDE.setP_OUT(CANPOUT);
+                JOptionPane.showMessageDialog(null,"Datos almacenados correctamente...");
+                JOptionPane.showMessageDialog(null,"El sistema posee los horarios y las cantidades de personas atendidas al mismo tiempo\n"
+                + "Nota: Se tomo en cuenta el aforo aplicado al sistema!");
+                FIDE.Leer_INFIJO();
+                FIDE.Leer_OUTFIJO();
                 
+                
+            }
+            else if (resp5==2)
+            {
+                FIDE.PersonasIn();
+                FIDE.PersonasOut();
+                JOptionPane.showMessageDialog(null,"El sistema posee los horarios y las cantidades de personas atendidas al mismo tiempo\n"
+                + "Nota: Se tomo en cuenta el aforo aplicado al sistema!");
+                FIDE.Leer_IN();
+                FIDE.Leer_Out();
             }
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

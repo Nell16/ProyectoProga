@@ -169,7 +169,7 @@ public class ReservacionDeRestaurante
     public void TiemposDisponibles()/*Mensaje para visualizar el mensaje final que despliega
             los espacios disponibles de todos los horarios del Restaurante!*/
     {
-        JOptionPane.showMessageDialog(null,"Espacios Disponibles (Darle un vistazo antes de contunuar)!\n"
+        JOptionPane.showMessageDialog(null,"Espacios Disponibles (Darle un vistazo antes de continuar)!\n"
         + "Desayuno\n"
         + "7:00 am = "+E_Desa1+" espacio/s\n"
         + "8:00 am = "+E_Desa2+" espacio/s\n"

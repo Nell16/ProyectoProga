@@ -20,6 +20,20 @@ public class RegistroDeCliente
     private int Edad;//Atributo/Objeto para definir la edad del cliente
     private String Forma_Pago;//Atributo/Objeto para definir la forma de pago a utilizar en el registro
     private int N_Acompanantes;//Atributo/Objeto El numero de acompañantes total que traera el registro del cliente
+    
+    //Constructor
+    public RegistroDeCliente()
+    {
+        this.N_Cliente=N_Cliente;
+        this.N_Identificacion=N_Identificacion;
+        this.Pais=Pais;
+        this.Provincia=Provincia;
+        this.Canton=Canton;
+        this.Distrito=Distrito;
+        this.Edad=Edad;
+        this.Forma_Pago=Forma_Pago;
+        this.N_Acompanantes=N_Acompanantes;
+    }        
     //Get and Set
 
     public String getN_Cliente() {
