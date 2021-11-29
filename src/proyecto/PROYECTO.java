@@ -15,6 +15,8 @@ public class PROYECTO {
     
     public static void main(String[] args) 
     {
+        //Menu del sistema 
+        //Aca visualizaremos como esta estructurado el menu 
         int Menu=Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese la opcion que desea ingresar:\n"
         +"HOTELES EL DESCANSO\n"
         +"===================\n"       
@@ -38,11 +40,11 @@ public class PROYECTO {
                 int CHabi=Integer.parseInt(JOptionPane.showInputDialog(null,"La cantidad total de habitaciones en el hotel..: "));
                 int Afor=Integer.parseInt(JOptionPane.showInputDialog(null,"El aforo aprobado de la temporada..: "));
                 int HDis=Integer.parseInt(JOptionPane.showInputDialog(null,"La cantidad de habitaciones disponibles por dia..: "));
-                FIDE.Hotel=N_Hotel;
-                FIDE.C_Habitaciones=CHabi;
-                FIDE.C_Total=CTotal;
-                FIDE.Aforo=Afor;
-                FIDE.H_Disponibles=HDis;
+                FIDE.setHotel(N_Hotel);
+                FIDE.setC_Habitaciones(CTotal);
+                FIDE.setC_Total(CHabi);
+                FIDE.setAforo(Afor);
+                FIDE.setH_Disponibles(HDis);
                 FIDE.RegistroFinal();
             }
             else
@@ -66,15 +68,15 @@ public class PROYECTO {
                 int E_dad=Integer.parseInt(JOptionPane.showInputDialog(null,"Edad del cliente..: "));
                 int Acompa=Integer.parseInt(JOptionPane.showInputDialog(null,"Cantidad de Acompañantes..: "));
                 String Pago = JOptionPane.showInputDialog("Forma de pago a utilizar\n(Efectivo - Transferencia - Tarjeta de credito)..: ");
-                FIDE.N_Cliente=NCliente;
-                FIDE.N_Identificacion=Iden;
-                FIDE.Pais=P_ais;
-                FIDE.Provincia=Provin;
-                FIDE.Canton=C_anton;
-                FIDE.Distrito=Dist;
-                FIDE.Edad=E_dad;
-                FIDE.Forma_Pago=Pago;
-                FIDE.N_Acompanantes=Acompa;
+                FIDE.setN_Cliente(NCliente);
+                FIDE.setN_Identificacion(Iden);
+                FIDE.setPais(P_ais);
+                FIDE.setProvincia(Provin);
+                FIDE.setCanton(C_anton);
+                FIDE.setDistrito(Dist);
+                FIDE.setEdad(E_dad);
+                FIDE.setForma_Pago(Pago);
+                FIDE.setN_Acompanantes(Acompa);
                 FIDE.RegistroCliente();
             }
             else
@@ -150,12 +152,75 @@ public class PROYECTO {
                 }
                 else
                 {
+                    //Variables en atributos publicos
+                    /////////////////////////////////
                     FIDE.DatosTarifas();
                 }
             }
             else
             {
                 FIDE.DatosReservacion();
+                String resp3_1 = JOptionPane.showInputDialog("Desea hacer una reservacion?");
+                if ("si".equals(resp3_1))
+                {
+                    JOptionPane.showMessageDialog(null,"El sistema debe asignar la disponibilidad de habitaciones por dia!");
+                    int Lunes=Integer.parseInt(JOptionPane.showInputDialog(null,"H. disponibles / Lunes..: "));
+                    int Martes=Integer.parseInt(JOptionPane.showInputDialog(null,"H. disponibles / Martes..: "));
+                    int Miercoles=Integer.parseInt(JOptionPane.showInputDialog(null,"H. disponibles / Miercoles..: "));
+                    int Jueves=Integer.parseInt(JOptionPane.showInputDialog(null,"H. disponibles / Jueves..: "));
+                    int Viernes=Integer.parseInt(JOptionPane.showInputDialog(null,"H. disponibles / Viernes..: "));
+                    int Sabado=Integer.parseInt(JOptionPane.showInputDialog(null,"H. disponibles / Sabado..: "));
+                    int Domingo=Integer.parseInt(JOptionPane.showInputDialog(null,"H. disponibles / Domingo..: "));
+                    JOptionPane.showMessageDialog(null,"Datos almacenados, a continuacion se reanudara el registro de la reserva!");
+                    int ClientesHospe=Integer.parseInt(JOptionPane.showInputDialog(null,"Cantidad de clientes que se hospedaran..: "));
+                    int DiasHospe=Integer.parseInt(JOptionPane.showInputDialog(null,"Dias que reservaran los clientes..: "));
+                    JOptionPane.showMessageDialog(null,"Elija y escriba el numero del dia que desea reservar!\n"
+                                +"=====================================\n"
+                                + "1 = Lunes \n"
+                                + "2 = Martes \n"
+                                + "3 = Miercoles \n"
+                                + "4 = Jueves \n"
+                                + "5 = Viernes \n"
+                                + "6 = Sabado \n"
+                                + "7 = Domingo");
+                    int SumaMonto=0;
+                    int SumaContador=0;
+                    for (int i = 1; i <= DiasHospe; i++)
+                    {
+                        //Variables por atributos publicos
+                        int Tentre1=0;
+                        int Tfin1=0;
+                        FIDE.T_Esemana=Tentre1;
+                        FIDE.T_Fsemana=Tfin1;
+                    
+                        int DiasReser=Integer.parseInt(JOptionPane.showInputDialog(null,"Dia#"+i+"\n"
+                                + "Ingrese el numero del dia:..: "));
+                        if (DiasReser==1 || DiasReser==2 || DiasReser==3 || DiasReser==4 || DiasReser==5)
+                        {
+                            SumaContador=Tentre1*ClientesHospe;
+                            SumaMonto+=SumaContador;  
+                        }
+                        else if (DiasReser==6 || DiasReser==7)
+                        {
+                            SumaContador=Tfin1*ClientesHospe;
+                            SumaMonto+=SumaContador;
+                        }
+                    }
+                    FIDE.Lune=Lunes;
+                    FIDE.Marte=Martes;
+                    FIDE.Miercole=Miercoles;
+                    FIDE.Jueve=Jueves;
+                    FIDE.Vierne=Viernes;
+                    FIDE.Sabad=Sabado;
+                    FIDE.Doming=Domingo;
+                    FIDE.C_Hospe=ClientesHospe;
+                    FIDE.D_Hospe=DiasHospe;
+                    FIDE.Monto=SumaMonto;
+                    int I_va=(int) (SumaMonto*0.13);
+                    FIDE.Iva=I_va;
+                    FIDE.M_Total=SumaMonto+I_va;
+                    FIDE.Reservacion();
+                }
             }
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -167,12 +232,12 @@ public class PROYECTO {
             if ("si".equals(resp4))
             {
                 int AforoRes=Integer.parseInt(JOptionPane.showInputDialog(null,"Cantidad del aforo aprobado en el restaurante..: "));
-                FIDE.R_Aforo=AforoRes;
+                FIDE.setR_Aforo(AforoRes);
                 FIDE.AforoRestaurante();
                 int DiasRes=Integer.parseInt(JOptionPane.showInputDialog(null,"Cuantos dias reservara el cliente para el restaurante..: "));
-                FIDE.R_Dias=DiasRes;
+                FIDE.setR_Dias(DiasRes);
                 int ClientesRes=Integer.parseInt(JOptionPane.showInputDialog(null,"Cuantos clientes utilizaran el servicio del restaurante..: "));
-                FIDE.R_Clientes=ClientesRes;
+                FIDE.setR_Clientes(ClientesRes);
                 JOptionPane.showMessageDialog(null,"Procesando...");
                 String resp4_1 = JOptionPane.showInputDialog("Desea cambiar los espacios disponibles de los tiempos de comida?");
                 if ("si".equals(resp4_1))
@@ -190,15 +255,15 @@ public class PROYECTO {
                     int cen2=Integer.parseInt(JOptionPane.showInputDialog(null,"Espacios disponibles a las 8:00pm..: "));
                     int cen3=Integer.parseInt(JOptionPane.showInputDialog(null,"Espacios disponibles a las 9:00pm..: "));
                     JOptionPane.showMessageDialog(null,"Los espacios disponibles se han almacenado correctamente, sigamos con la reserva!");
-                    FIDE.E_Desa1=desa1;
-                    FIDE.E_Desa2=desa2;
-                    FIDE.E_Desa3=desa3;
-                    FIDE.E_Alm1=alm1;
-                    FIDE.E_Alm2=alm2;
-                    FIDE.E_Alm3=alm3;
-                    FIDE.E_Cen1=cen1;
-                    FIDE.E_Cen2=cen2;
-                    FIDE.E_Cen3=cen3;
+                    FIDE.setE_Desa1(desa1);
+                    FIDE.setE_Desa2(desa2);
+                    FIDE.setE_Desa3(desa3);
+                    FIDE.setE_Alm1(alm1);
+                    FIDE.setE_Alm2(alm2);
+                    FIDE.setE_Alm3(alm3);
+                    FIDE.setE_Cen1(cen1);
+                    FIDE.setE_Cen2(cen2);
+                    FIDE.setE_Cen3(cen3);
                     FIDE.TiemposDisponibles();
                     for (int i = 1; i <= DiasRes; i++)
                     {
@@ -232,9 +297,9 @@ public class PROYECTO {
             {
                 FIDE.AforoRestaurante();
                 int DiasRes=Integer.parseInt(JOptionPane.showInputDialog(null,"Cuantos dias reservara el cliente para el restaurante..: "));
-                FIDE.R_Dias=DiasRes;
+                FIDE.setR_Dias(DiasRes);
                 int ClientesRes=Integer.parseInt(JOptionPane.showInputDialog(null,"Cuantos clientes utilizaran el servicio del restaurante..: "));
-                FIDE.R_Clientes=ClientesRes;
+                FIDE.setR_Clientes(ClientesRes);
                 JOptionPane.showMessageDialog(null,"Procesando...");
                 String resp4_1 = JOptionPane.showInputDialog("Desea cambiar los espacios disponibles de los tiempos de comida?");
                 if ("si".equals(resp4_1))
@@ -252,15 +317,15 @@ public class PROYECTO {
                     int cen2=Integer.parseInt(JOptionPane.showInputDialog(null,"Espacios disponibles a las 8:00pm..: "));
                     int cen3=Integer.parseInt(JOptionPane.showInputDialog(null,"Espacios disponibles a las 9:00pm..: "));
                     JOptionPane.showMessageDialog(null,"Los espacios disponibles se han almacenado correctamente, sigamos con la reserva!");
-                    FIDE.E_Desa1=desa1;
-                    FIDE.E_Desa2=desa2;
-                    FIDE.E_Desa3=desa3;
-                    FIDE.E_Alm1=alm1;
-                    FIDE.E_Alm2=alm2;
-                    FIDE.E_Alm3=alm3;
-                    FIDE.E_Cen1=cen1;
-                    FIDE.E_Cen2=cen2;
-                    FIDE.E_Cen3=cen3;
+                    FIDE.setE_Desa1(desa1);
+                    FIDE.setE_Desa2(desa2);
+                    FIDE.setE_Desa3(desa3);
+                    FIDE.setE_Alm1(alm1);
+                    FIDE.setE_Alm2(alm2);
+                    FIDE.setE_Alm3(alm3);
+                    FIDE.setE_Cen1(cen1);
+                    FIDE.setE_Cen2(cen2);
+                    FIDE.setE_Cen3(cen3);
                     FIDE.TiemposDisponibles();
                     for (int i = 1; i <= DiasRes; i++)
                     {

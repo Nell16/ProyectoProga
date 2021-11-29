@@ -10,15 +10,65 @@ import javax.swing.JOptionPane;
 
 public class RegistroDelHotel 
 {
-    //Atributos
-    public String Hotel;
-    public int C_Total;
-    public int C_Habitaciones;
-    public int Aforo;
-    public int H_Disponibles;
-    
+    //Atributos - Objetos - Aca estan las variables que tendran un llamamiento en el main
+    private String Hotel; //Puntarenas - San Carlos - Guanacaste
+    private int C_Total;//Cantidad total de personas admitidas en el hotel
+    private int C_Habitaciones;//Cantidad de habitaciones que dispondra el hotel
+    private int Aforo;//Aforo permitido en su respectiva temporada (Ejemplo: 50 Huespedes en Navidad)
+    private int H_Disponibles;//Cantidad de habitaciones disponibles en el hotel segun su aforo
+    //Constructor vacio
+    public RegistroDelHotel()//Esto le otorga acceso al main y poder interactuar con los objetos.
+    {
+        this.Hotel=Hotel;
+        this.C_Total=C_Total;
+        this.C_Habitaciones=C_Habitaciones;
+        this.Aforo=Aforo;
+        this.H_Disponibles=H_Disponibles;
+    }
+    //Get and Set
+
+    public String getHotel() {
+        return Hotel;
+    }
+
+    public void setHotel(String Hotel) {
+        this.Hotel = Hotel;
+    }
+
+    public int getC_Total() {
+        return C_Total;
+    }
+
+    public void setC_Total(int C_Total) {
+        this.C_Total = C_Total;
+    }
+
+    public int getC_Habitaciones() {
+        return C_Habitaciones;
+    }
+
+    public void setC_Habitaciones(int C_Habitaciones) {
+        this.C_Habitaciones = C_Habitaciones;
+    }
+
+    public int getAforo() {
+        return Aforo;
+    }
+
+    public void setAforo(int Aforo) {
+        this.Aforo = Aforo;
+    }
+
+    public int getH_Disponibles() {
+        return H_Disponibles;
+    }
+
+    public void setH_Disponibles(int H_Disponibles) {
+        this.H_Disponibles = H_Disponibles;
+    }
     //Metodos
-    public void RegistroFinal()
+    public void RegistroFinal()/* Mensaje del "RegistroFinal" donde podremos visualizar el mensaje con todos los
+            datos recien almacenados al ejecutar el codigo*/
     {
         JOptionPane.showMessageDialog(null,"Los datos se han guardado exitosamente!\n"
                 +"=====================================\n"
@@ -29,7 +79,8 @@ public class RegistroDelHotel
                 + "Habitaciones disponibles por dia: "+H_Disponibles);
     }
     
-    public void RegistroDatos()
+    public void RegistroDatos()/*Mensaje del "RegistroDatos" donde podremos visualizar el mensaje con todos los
+            datos anteriormente ingresados en el Registro*/
     {
         JOptionPane.showMessageDialog(null,"Se leeran datos ingresados anteriormente");
     }
