@@ -76,13 +76,26 @@ public class RegistroDelHotel
                 + "Cantidad total del hotel: "+C_Total+"\n"
                 + "Cantidad de Habitaciones: "+C_Habitaciones+"\n"
                 + "Aforo aprobado: "+Aforo+"\n"
-                + "Habitaciones disponibles por dia: "+H_Disponibles);
+                + "Habitaciones disponibles por dia: "+H_Disponibles+"\n"
+                + "");
+        RegistroDatos();
     }
     
     public void RegistroDatos()/*Mensaje del "RegistroDatos" donde podremos visualizar el mensaje con todos los
             datos anteriormente ingresados en el Registro*/
     {
-        JOptionPane.showMessageDialog(null,"Se leeran datos ingresados anteriormente");
+        JOptionPane.showMessageDialog(null,"Datos almacenados en el sistema!");
+        JOptionPane.showMessageDialog(null,"Nombre del Hotel: Puntarenas \n"
+        + "Cantidad total del hotel: 100 \n"
+        + "Cantidad de Habitaciones: 40 \n"
+        + "Aforo aprobado: 80\n"
+        + "Habitaciones disponibles por dia: 12");
+        JOptionPane.showMessageDialog(null,"Nombre del Hotel: San Carlos \n"
+        + "Cantidad total del hotel: 70 \n"
+        + "Cantidad de Habitaciones: 35 \n"
+        + "Aforo aprobado: 65\n"
+        + "Habitaciones disponibles por dia: 8");
+
     }
     
 }

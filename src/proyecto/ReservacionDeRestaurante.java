@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 public class ReservacionDeRestaurante 
 {
     //Atributos - Objetos - Aca estan las variables que tendran un llamamiento en el main
-    private int R_Dias;//En este atributo 
+    private int R_Dias;//En este atributo se guardaran los dias que se reserven en el restaurante
     private int R_Aforo=30;//El aforo permitido dentro del restaurante en cada temporada
     private int R_Clientes;//En este atributo se capturara la cantidad de reservaciones que tendran los clientes
     private int E_Desa1=30;//Espacios disponibles en el Desayuno#1
@@ -194,6 +194,26 @@ public class ReservacionDeRestaurante
     public void ReservaRestaurante()/*Mensaje para visualizar el mensaje final que de desplegara al completar la reserva
             del restaurante! Todo esto lo podremos visualizar ejecutando el codigo en el main!*/
     {
-        JOptionPane.showMessageDialog(null,"");
+        JOptionPane.showMessageDialog(null,"RESERVA DEL RESTAURANTE\n"
+                + "===========================\n"
+                + "-El aforo permitido en el restaurante es de..: "+R_Aforo+"\n"
+                + "-La cantidad de dias reservados es de..: "+R_Dias+"\n"
+                + "-La cantidad de clientes a utilizar el servicio es de..: "+R_Clientes+"\n"
+                + "===========================\n"
+                + "---------ESPACIOS----------\n"
+                + "Desayuno\n"
+                + "7:00 am = "+E_Desa1+" espacio/s\n"
+                + "8:00 am = "+E_Desa2+" espacio/s\n"
+                + "9:00 am = "+E_Desa3+" espacio/s\n"
+                + "=============================\n"
+                + "Almuerzo\n"
+                + "12:00 md = "+E_Alm1+" espacio/s\n"
+                + "1:00 pm = "+E_Alm2+" espacio/s\n"
+                + "2:00 pm = "+E_Alm3+" espacio/s\n"
+                + "=============================\n"
+                + "Cena\n"
+                + "7:00 pm = "+E_Cen1+" espacio/s\n"
+                + "8:00 pm = "+E_Cen2+" espacio/s\n"
+                + "9:00 pm = "+E_Cen3+" espacio/s");
     }
 }

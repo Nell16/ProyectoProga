@@ -15,6 +15,9 @@ public class PROYECTO {
     
     public static void main(String[] args) 
     {
+        Salir FIDE_1=new Salir();
+        while (FIDE_1.getS_alida()<= 10)
+        {
         //Menu del sistema 
         //Aca visualizaremos como esta estructurado el menu 
         int Menu=Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese la opcion que desea ingresar:\n"
@@ -29,7 +32,7 @@ public class PROYECTO {
         
         //Estructura Decision
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if (Menu==1)// REGISTRO DEL HOTEL
+        if (Menu==1)// REGISTRO DEL HOTEL - LISTO!
         {
             RegistroDelHotel FIDE= new RegistroDelHotel();
             String resp = JOptionPane.showInputDialog("Desea agregar nuevos datos del hotel?");
@@ -85,7 +88,7 @@ public class PROYECTO {
             } 
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        else if (Menu==3)// RESERVACION DE HOSPEDAJE
+        else if (Menu==3)// RESERVACION DE HOSPEDAJE - Listo
         {
             ReservacionDeHospedaje FIDE= new ReservacionDeHospedaje();
             String resp3 = JOptionPane.showInputDialog("Desea cambiar las tarifas de fin y entre semana?");
@@ -188,10 +191,8 @@ public class PROYECTO {
                     for (int i = 1; i <= DiasHospe; i++)
                     {
                         //Variables por atributos publicos
-                        int Tentre1=0;
-                        int Tfin1=0;
-                        FIDE.T_Esemana=Tentre1;
-                        FIDE.T_Fsemana=Tfin1;
+                        int Tentre1=FIDE.T_Esemana;
+                        int Tfin1=FIDE.T_Fsemana;
                     
                         int DiasReser=Integer.parseInt(JOptionPane.showInputDialog(null,"Dia#"+i+"\n"
                                 + "Ingrese el numero del dia:..: "));
@@ -270,12 +271,13 @@ public class PROYECTO {
                         //ARCHIVOS TXT //LUEGO SE COLOCARA LA RESERVA DEL RESTAURANTE AL TENER LOS ARCHIVOS TXT
                         
                         int HDesa=Integer.parseInt(JOptionPane.showInputDialog(null,"Dia#"+i+"\n"
-                                + "Seleccione la hora de desea desayunar (Ejemplo: 8)..: "));
+                                + "Seleccione la hora que desea desayunar (Ejemplo: 8)..: "));
                         int HAlm=Integer.parseInt(JOptionPane.showInputDialog(null,"Dia#"+i+"\n"
-                                + "Seleccione la hora de desea almorzar (Ejemplo: 12)..: "));
+                                + "Seleccione la hora que desea almorzar (Ejemplo: 12)..: "));
                         int HCen=Integer.parseInt(JOptionPane.showInputDialog(null,"Dia#"+i+"\n"
-                                + "Seleccione la hora de desea cenar (Ejemplo: 9)..: "));                       
-                    }    
+                                + "Seleccione la hora que desea cenar (Ejemplo: 9)..: "));                       
+                    }
+                    FIDE.ReservaRestaurante();
                 }
                 else
                 {
@@ -291,7 +293,7 @@ public class PROYECTO {
                         int HCen=Integer.parseInt(JOptionPane.showInputDialog(null,"Dia#"+i+"\n"
                                 + "Seleccione la hora de desea cenar (Ejemplo: 9)..: "));  
                     }
-                }      
+                }   FIDE.ReservaRestaurante();   
             }
             else
             {
@@ -338,6 +340,7 @@ public class PROYECTO {
                         int HCen=Integer.parseInt(JOptionPane.showInputDialog(null,"Dia#"+i+"\n"
                                 + "Seleccione la hora de desea cenar (Ejemplo: 9)..: "));  
                     }    
+                    FIDE.ReservaRestaurante();
                 }
                 else
                 {
@@ -353,11 +356,12 @@ public class PROYECTO {
                         int HCen=Integer.parseInt(JOptionPane.showInputDialog(null,"Dia#"+i+"\n"
                                 + "Seleccione la hora de desea cenar (Ejemplo: 9)..: "));  
                     }
+                    FIDE.ReservaRestaurante();
                 }    
             }
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        else if (Menu==5)// CHECK IN Y CHECK OUT
+        else if (Menu==5)// CHECK IN Y CHECK OUT - LISTO
         {
             CheckIn_Out FIDE= new CheckIn_Out();
             JOptionPane.showMessageDialog(null,"Bienvenido a la asignacion de horarios de check in y check out!\n");
@@ -388,17 +392,28 @@ public class PROYECTO {
             {
                 FIDE.PersonasIn();
                 FIDE.PersonasOut();
-                JOptionPane.showMessageDialog(null,"El sistema posee los horarios y las cantidades de personas atendidas al mismo tiempo\n"
+                JOptionPane.showMessageDialog(null,"El sistema posee los horarios y las cantidades de personas atendidas en extractos de 30 min!\n"
                 + "Nota: Se tomo en cuenta el aforo aplicado al sistema!");
                 FIDE.Leer_IN();
                 FIDE.Leer_Out();
             }
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        else if (Menu==6)// SALIR O CONTINUAR!
+        else if (Menu==6)// SALIR O CONTINUAR! - LISTO
         {
-            
+            String resp6 = JOptionPane.showInputDialog("Esta seguro que desea salir del sistema!?");
+            if ("si".equals(resp6))
+            {
+                FIDE_1.setS_alida(11);
+                FIDE_1.Salida();
+            }
+            else
+            {
+                FIDE_1.NoSalir();
+            }
         }
+        }
+        
     }
     
 }

@@ -117,13 +117,27 @@ public class RegistroDeCliente
                 + "Nombre del cliente: "+N_Cliente+"\n"
                 + "Identificacion : "+N_Identificacion+"\n"
                 + "N. Acompañantes : "+N_Acompanantes+"\n"
-                + "Pais - Provincia - Canton: "+Pais+" - "+Provincia+" - "+Canton+"\n"
+                + ""+Pais+" - "+Provincia+" - "+Canton+"\n"
                 + "Edad: "+Edad+"\n"
                 + "Forma de pago: "+Forma_Pago);
+        JOptionPane.showMessageDialog(null,"Datos almacenados en el sistema!");
+        DatosCliente();
     }
     
     public void DatosCliente()//Mensaje para visualizar los registros que habian anteriormente en el hotel
     {
-        JOptionPane.showMessageDialog(null,"Se leeran datos ingresados anteriormente!");
+        JOptionPane.showMessageDialog(null,"Datos almacenados en el sistema del cliente!");
+        JOptionPane.showMessageDialog(null,"Nombre del cliente: Pedro \n"
+        + "Identificacion : 33941203 \n"
+        + "N. Acompañantes : 3 \n"
+        + "Costa Rica - San jose - Aserri\n"
+        + "Edad: 19\n"
+        + "Forma de pago:  Transferencia");
+        JOptionPane.showMessageDialog(null,"Nombre del cliente: Salomon \n"
+        + "Identificacion : 79472651 \n"
+        + "N. Acompañantes : 5 \n"
+        + "Costa Rica - Alajuela - Grecia\n"
+        + "Edad: 27\n"
+        + "Forma de pago:  Efectivo");
     }
 }
